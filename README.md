@@ -26,19 +26,13 @@ pip install pyserial pygame
 
 ## 🛠 The Scripts
 
-### 1. `m8_capture.py` (Manual Capture)
-Listens to the M8 Headless serial port and saves the display stream to a file. Use this if you want to manually navigate the M8 (press buttons yourself) to capture specific screens or workflows.
-
-*   **Usage:** Run the script, interact with your M8, and press `Ctrl+C` to stop.
-*   **Key Action:** Sends the M8 initialization handshake (`D`, `E`, `R`) automatically.
-
-### 2. `m8_capture_auto.py` (Automated Stress Test)
+### 1. `m8_capture_auto.py` (Automated Stress Test)
 This script is a "bot" that connects to the M8, starts recording, and automatically sends input commands (Play, Navigation, View Switching) to generate a standardized test pattern.
 
 *   **Why use it:** Great for generating stress-test data with heavy waveform usage and rapid screen transitions.
 *   **Behavior:** Plays the current song, drills down into Instrument views, goes back up to Song view, and stops.
 
-### 3. `m8_verify.py` (PC Simulator)
+### 2. `m8_verify.py` (PC Simulator)
 **Always run this before trying to replay to hardware.**
 This script parses the captured binary file (SLIP encoded) and renders it to a Pygame window on your computer.
 
@@ -48,7 +42,7 @@ This script parses the captured binary file (SLIP encoded) and renders it to a P
     *   Simulates the M8's "dirty rectangle" and waveform clearing logic.
 *   **Controls:** The window plays back the recording. You can adjust `PLAYBACK_SPEED` in the script to watch frame-by-frame.
 
-### 4. `m8_play.py` (Hardware Replay)
+### 3. `m8_play.py` (Hardware Replay)
 Streams the captured binary file over a serial port to your target custom hardware.
 
 *   **Flow Control:** Includes a tunable delay (`DELAY_PER_CHUNK`) to prevent overflowing the serial buffers on smaller microcontrollers that lack hardware flow control.
