@@ -1,6 +1,3 @@
-
----
-
 # m8capreplay
 
 **m8capreplay** is a Python-based toolset designed to capture, verify, and replay the serial display data from the [Dirtywave M8](https://dirtywave.com/) (Headless).
